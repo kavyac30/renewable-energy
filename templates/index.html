@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Renewable Energy Generation Prediction</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Renewable Energy Generation Prediction</h1>
+        <form action="/predict" method="POST">
+            <label for="type">Energy Type</label>
+            <select id="type" name="type" required>
+                <option value="0">Solar</option>
+                <option value="1">Wind</option>
+            </select>
+
+            <label for="state_name">State Name</label>
+            <select id="state_name" name="state_name" required>
+                <option value="1">Karnataka</option>
+                <option value="2">Andhra Pradesh</option>
+                <option value="3">Gujrat</option>
+                <option value="4">Madhya Pradesh</option>
+                <option value="5">Rajasthan</option>
+                <option value="6">Tamil Nadu</option>
+                <option value="7">Uttar Pradesh</option>
+            </select>
+
+            <label for="station">Station Name</label>
+            <select id="station" name="station" required>
+                <option value="11">TATA RENEWABLES - KA</option>
+                <option value="12">YARROW - KA</option>
+                <option value="13">TATA POWER - AP</option>
+                <option value="14">SBG ENERGY - AP</option>
+                <option value="15">RENEW SOLAR - GJ</option>
+                <option value="16">OSTRO WIND - GJ</option>
+                <option value="17">ACME SOLAR - MP</option>
+                <option value="18">MAHINDRA SOLAR - MP</option>
+                <option value="19">AZURE POWER INDIA PVT LTD - RJ</option>
+                <option value="20">TATA POWER RENEWABLE ENERGY LTD - RJ</option>
+                <option value="21">GREEN INFRA - TN </option>
+                <option value="22">MYTRA - TN </option>
+                <option value="23">DADRI SOLAR - UP</option>
+                <option value="24">SINGRAULI SOLAR - UP</option>
+            </select>
+
+            <label for="sector">Energy Type</label>
+            <select id="sector" name="sector" required>
+                <option value="0">Central</option>
+                <option value="1">Private</option>
+            </select>
+
+            <label for="owner">Energy Type</label>
+            <select id="owner" name="owner" required>
+                <option value="0">NTPC</option>
+                <option value="1">IPP</option>
+            </select>
+
+
+            <label for="installed_capacity">Installed Capacity (in MW)</label>
+            <input type="number" id="installed_capacity" name="installed_capacity" step="0.01" placeholder="Enter installed capacity" required>
+
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" placeholder="Enter date" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h2>Predicted Energy Generation: {{ prediction }} MW</h2>
+        </div>
+        {% endif %} 
+ 
+    </div>
+</body>
+</html>
+
+
